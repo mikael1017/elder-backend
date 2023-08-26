@@ -4,12 +4,10 @@ import mongoose from "mongoose";
 import session from "express-session";
 import ElderController from "./controllers/elders/elder-controller.js";
 import ManagerController from "./controllers/managers/manager-controller.js";
+import "dotenv/config";
 
-const CONNECTION_STRING = process.env.DB_CONNECTION_STRING;
-
-mongoose.connect(
-	"mongodb+srv://jaewoo:wodn1017@cs6650.o3m9wao.mongodb.net/elderManager?retryWrites=true&w=majority"
-);
+const CONNECTION_STRING = process.env.MONGODB_API_URL;
+mongoose.connect(CONNECTION_STRING);
 const app = express();
 // make it available to frontend app
 // app.use(
